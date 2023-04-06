@@ -6,25 +6,28 @@ const Index = ({data}) =>{
     return (
         <div style={{display:'flex', justifyContent:'center', alignItems:'center',flexDirection:'column'}}>
             <p style={{fontSize:"30px", color:'black', fontWeight:"bold"}}>Users</p>
-            <div style={{display:'flex',flexDirection:'column',width:'500px',height:"auto", alignItems:"center", border:'solid 2px black'}}>
+            <div style={{display:'flex',flexDirection:'column',width:'1200px', alignItems:"center",  justifyContent:'center'}}>
+                <ul style={{listStyle:'none'}}>
                 {
                     data.map(({name,id})=>{
                         return (
-                            <p style={{fontSize:'20px',fontWeight:'bold', color:'blue', height:'25px',border:'solid 2px black'}}>
-                                <Link href={{
-                                    pathname: name.toLocaleLowerCase().replaceAll(/ /gi, ''),
+                            <li style={{width:'1100px',fontSize:'20px',fontWeight:'bold', backgroundColor:'orange', color:'white',
+                                height:'35px',border:'solid 0.1px black',display:'flex', alignItems:'center' }}>
+                                <Link style={{textDecoration:"none"}} href={{
+                                    pathname: name.toLocaleLowerCase(),
                                     query:{
                                         user_id:id
                                     }
                                 }}
                                 key={name}
 
-                                >{name}</Link>
+                                ><p style={{margin:0}}>{name}</p></Link>
 
-                            </p>
+                            </li>
                         )
                     })
                 }
+                </ul>
 
             </div>
         </div>
